@@ -1,2 +1,23 @@
-<h1>Authors#new</h1>
-<p>This is the index page</p>
+<h1>New author</h1>
+
+<%= form_with model: @author do |form| %>
+  <div>
+    <%= form.label :first_name %><br>
+    <%= form.text_field :first_name %>
+  </div>
+
+  <div>
+    <%= form.label :last_name %><br>
+    <%= form.text_field :last_name %>
+  </div>
+
+  <div>
+    <%= form.label :homepage %><br>
+    <%= form.text_field :homepage %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+
