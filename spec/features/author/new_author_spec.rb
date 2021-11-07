@@ -26,4 +26,10 @@ describe "New author page", type: :feature do
     expect(author.homepage).to eq('http://wikipedia.org/Alan_Turing')
   end
 
+  it "should show error when invalid information is submitted" do
+    visit new_author_path
+    find('input[type="submit"]').click
+    expect(page).to have_text("Error")
+  end
+
 end
