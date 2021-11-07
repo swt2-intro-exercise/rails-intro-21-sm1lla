@@ -28,8 +28,9 @@ describe "New author page", type: :feature do
 
   it "should show error when invalid information is submitted" do
     visit new_author_path
+    expect(page).to_not have_text("error")
     find('input[type="submit"]').click
-    expect(page).to have_text("Error")
+    expect(page).to have_text("error")
   end
 
 end
