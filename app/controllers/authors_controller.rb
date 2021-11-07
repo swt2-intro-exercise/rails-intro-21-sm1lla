@@ -12,6 +12,8 @@ class AuthorsController < ApplicationController
 
     if @author.save
       redirect_to root_path, notice: 'Success!'
+    else
+      render 'new'
     end
   end
 
