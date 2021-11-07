@@ -22,8 +22,8 @@ describe "All authors page", type: :feature do
     end
 
     it "should link to the authors' detail pages" do
-        visit author_index_path
         @alan = FactoryBot.create :author
-        expect(page).to have_link 'Alan Turing', href: author_path(@alan)
+        visit authors_index_path
+        expect(page).to have_link @alan.name, href: author_path(@alan)
     end
 end
