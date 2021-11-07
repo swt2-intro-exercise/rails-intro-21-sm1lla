@@ -10,18 +10,19 @@ describe "All authors page", type: :feature do
     end 
 
     it "should contain a table with headings Name and Homepage" do
-        expect(page).to have_table "#table"
-        within_table do
-            expect(page).to have_text("Name")
-            expect(page).to have_text("Homepage")
-        end
+        visit authors_index_path
+        expect(page).to have_css('table')
+        expect(page).to have_css('th', text: 'Name')
+        expect(page).to have_css('th', text: 'Homepage')
     end
 
     it "should have link to the new author page" do
+        visit authors_index_path
         expect(page).to have_link 'New', href: new_author_path
     end
 
     it "should link to the authors' detail pages" do
+        visit author_index_path
         @alan = FactoryBot.create :author
         expect(page).to have_link 'Alan Turing', href: author_path(@alan)
     end
