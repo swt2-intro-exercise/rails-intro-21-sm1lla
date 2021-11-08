@@ -32,4 +32,14 @@ describe "All authors page", type: :feature do
         visit authors_index_path
         expect(page).to have_link 'Edit', href: edit_author_path(@alan)
     end
+
+    it "should delete an author when clicking on delete" do
+        count = Author.count
+        @alan = FactoryBot.create :author
+        visit authors_index_path
+        td = page.find(:css, 'td', text: @alan.name)
+        tr = td.find(:xpath, './parent::tr')
+        find_link('Delete').click
+        expect(Author.count).to eq(count - 1)
+    end
 end
