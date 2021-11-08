@@ -4,6 +4,7 @@
     <tr>
         <th>Name</th>
         <th>Homepage</th>
+        <th></th>
     </tr>
     <% @authors.each do |author| %>
         <tr>
@@ -13,6 +14,11 @@
             </a>
         </td>
         <td><%= author.homepage %></td>
+        <td>
+            <a href="<%= edit_author_path(author)%>">
+                Edit
+            </a>
+        </td>
         </tr>
     <% end %>
 </table>
