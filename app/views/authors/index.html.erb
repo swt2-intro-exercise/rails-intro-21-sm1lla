@@ -5,6 +5,7 @@
         <th>Name</th>
         <th>Homepage</th>
         <th></th>
+        <th></th>
     </tr>
     <% @authors.each do |author| %>
         <tr>
@@ -14,11 +15,10 @@
             </a>
         </td>
         <td><%= author.homepage %></td>
-        <td>
-            <a href="<%= edit_author_path(author)%>">
-                Edit
-            </a>
-        </td>
+        <td><%= link_to 'Edit', edit_author_path(author)%></td>
+        <td><%= link_to 'Delete', author_path(author),
+                method: :delete,
+                data: {confirm: 'Are you sure?'}%></td>
         </tr>
     <% end %>
 </table>
