@@ -34,8 +34,8 @@ describe "All authors page", type: :feature do
     end
 
     it "should delete an author when clicking on delete" do
-        count = Author.count
         @alan = FactoryBot.create :author
+        count = Author.count
         visit authors_index_path
         td = page.find(:css, 'td', text: @alan.name)
         tr = td.find(:xpath, './parent::tr')
