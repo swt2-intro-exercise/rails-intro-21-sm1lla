@@ -18,7 +18,7 @@ RSpec.describe "papers/show", type: :view do
 
   it "should display the author's full name" do
     @author = Author.create(first_name: 'Alan', last_name: 'Turing')
-    @paper.authors << @autor
+    @paper.authors << @author
     render
     expect(rendered).to have_text('Alan Turing')
   end
