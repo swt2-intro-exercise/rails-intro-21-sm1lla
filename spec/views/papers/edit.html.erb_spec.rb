@@ -21,4 +21,10 @@ RSpec.describe "papers/edit", type: :view do
       assert_select "input[name=?]", "paper[year]"
     end
   end
+
+  it "should have a multiple select box" do
+    render
+    expect(rendered).to have_css('select[multiple]')
+  end
+
 end
