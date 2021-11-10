@@ -10,4 +10,5 @@ RSpec.describe Author, type: :model do
     @author = Author.new(first_name: "Alan")
     expect(@author).to_not be_valid
   end
+  
 end
